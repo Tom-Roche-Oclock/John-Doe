@@ -1,0 +1,118 @@
+@use './reset.css';
+@use './grid';
+@use './mixin';
+@use './components/nav';
+@use './components/buttons';
+@use './components/jumbo';
+@use './components/about';
+@use './components/skills';
+@use './components/services';
+@use './components/portfolio';
+@use './components/contact';
+@use './components/footer';
+
+/////////////////////////////
+// variables (en css pour pouvoir les manipuler avec l'inspecteur😉)
+/////////////////////////////
+
+:root {
+  --color-dark : #2a2a2a;
+  --color-light: #ffffff;
+  --color-light-alt: #fafafa;
+  --color-alt : #8bc34a;
+
+  --font-general: 'Poppins', sans-serif;
+  --font-title : 'Rubik', sans-serif;
+
+  --margin-base: 2rem;
+  --gutter: 1rem;
+}
+
+/////////////////////////////
+// Regles généralistes
+/////////////////////////////
+
+// aspect du texte séléctionné
+::selection {
+  color: var(--color-light);
+  background-color: var(--color-alt);
+}
+
+html {
+  // défilement fluide vers les ancres
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+body {
+  font-family: var(--font-general);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+section {
+  padding: 5rem 0;
+}
+section:nth-child(odd) {
+  // arriere plan different dans 1 section sur 2
+  // odd = impair
+  background-color: var(--color-light-alt);
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  padding-bottom: 1em;
+  background-image: url(/public/img/title-bg.png);
+  background-position: center;
+  background-size: 4em;
+  background-repeat: no-repeat;
+
+  @include mixin.medium {
+    text-align: start;
+    background-position: left center;
+  }
+}
+
+/////////////////////////////
+// classes généralistes
+/////////////////////////////
+
+// le wrapper limite la largeur max et centre horizontalement les blocks
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 var(--margin-base);
+}
+
+// images arrondies
+.rounded {
+  border-radius: 1rem;
+}
+
+// images ombrées
+.shaded {
+  box-shadow: 0 0 1rem rgba(0,0,0,.4);
+}
+
+// images en nuance de gris
+.bAndW {
+  filter: grayscale(1);
+}
+
+// intros de section
+.accroche {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}

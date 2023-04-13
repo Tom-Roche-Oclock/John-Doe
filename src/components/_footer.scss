@@ -1,0 +1,23 @@
+@use './../mixin';
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  padding: 1rem;
+  font-size: .8rem;
+
+  &__text {
+    margin: 0;
+  }
+
+  &__heart {
+    color: var(--color-alt);
+  }
+
+  &__tagW3c {
+    padding: 0.2rem .5rem;
+    background-color: black;
+    border-radius: .2rem;
+  }
+}

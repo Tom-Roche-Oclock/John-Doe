@@ -1,0 +1,71 @@
+@use './../mixin';
+
+.competences {
+  .row {
+    align-items: stretch;
+
+    @include mixin.medium {
+      align-items: center;
+    }
+  }
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-bottom: var(--gutter);
+
+  @include mixin.medium {
+    margin-bottom: 0;
+  }
+
+  &__data {
+    box-shadow: 0 0 .5rem rgba(0,0,0,.2);
+    position: relative;
+
+    // on pseudo-crée la jauge de remplissage
+    &::before {
+      content: "";
+      display: block;
+      background-color: var(--color-dark);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transition: .3s ease;
+    }
+
+    // l'attribut data-value donne la largeur de la jauge de remplissage 
+    &[data-value="60"]::before { width: 60%; }
+    &[data-value="65"]::before { width: 65%; }
+    &[data-value="70"]::before { width: 70%; }
+    &[data-value="75"]::before { width: 75%; }
+    &[data-value="80"]::before { width: 80%; }
+    &[data-value="85"]::before { width: 85%; }
+    &[data-value="90"]::before { width: 90%; }
+    &[data-value="95"]::before { width: 95%; }
+    &[data-value="100"]::before { width: 100%; }
+
+    &:hover::before {
+      background-color: var(--color-alt);
+    }
+    &:hover {
+      .skills__label {
+        translate: .5rem 0;
+      }
+    }
+  }
+
+  &__label {
+    // la jauge étant positionnée, il faut replacer le label par dessus avec un z-index + fort
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 .2rem black;
+    margin: 0;
+    font-size: .8rem;
+    padding: .5rem;
+    color: var(--color-light);
+    transition: .3s ease;
+  }
+}

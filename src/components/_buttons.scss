@@ -1,0 +1,16 @@
+@use './../mixin';
+
+.btn {
+  padding: .25rem 1rem;
+  border: solid 2px var(--color-dark);
+  border-radius: 5rem;
+  transition: .2s ease;
+  display: inline-flex;
+  cursor: pointer;
+
+  &:hover,
+  &--actif {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+  }
+}

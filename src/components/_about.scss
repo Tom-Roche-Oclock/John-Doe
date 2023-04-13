@@ -1,0 +1,13 @@
+@use './../mixin';
+
+.apropos {
+  .row { align-items: stretch; }
+  
+  &__actions {
+    padding: var(--margin-base);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--gutter) * .1);
+  }
+}

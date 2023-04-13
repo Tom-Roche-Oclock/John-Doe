@@ -1,0 +1,78 @@
+@use './../mixin';
+
+header {
+  background-color: var(--color-light);
+  position: fixed; // header fixé en haut de l'écran
+  z-index: 99; // traduit la volonté de garder cet élément au premier plan
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 2rem;
+
+    // chaque lettre du logo est dans un span
+    span {
+      position: relative;
+      top: 0;
+      border-bottom: solid 8px transparent;
+    }
+
+    // anim des lettres du logo en déphasage
+    span:nth-child(1) { transition: .3s ease 0s; }
+    span:nth-child(2) { transition: .3s ease .1s; }
+    span:nth-child(3) { transition: .3s ease .2s; }
+    span:nth-child(4) { transition: .3s ease .3s; }
+  }
+
+  // au survol global de la nav, on anime le logo
+  &:hover {
+    .nav__logo {
+      span {
+        color: var(--color-alt);
+        top: .25em;
+        border-bottom: solid 8px var(--color-alt);
+      }
+    }
+  }
+
+  &__list {
+    // par défaut en mobile le menu est caché
+    display: none;
+    // on l'affiche en mode desktop
+    @include mixin.big {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: .5rem 1rem;
+    border-bottom: solid .25rem transparent;
+    transition: .3s ease;
+
+    &:hover {
+      padding-top: .75rem;
+      padding-bottom: .25rem;
+      border-bottom: solid .25rem var(--color-dark);
+    }
+  }
+
+  &__menu-btn {
+    border: none;
+    padding: .5rem;
+    line-height: 1rem;
+    @include mixin.big {
+      display: none;
+    }
+  }
+}

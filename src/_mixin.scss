@@ -1,0 +1,14 @@
+
+// passage à l'affichage tablette
+@mixin medium {
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+
+// passage à l'affichage desktop
+@mixin big {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}

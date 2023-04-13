@@ -1,0 +1,39 @@
+@use './../mixin';
+
+.jumbo {
+  // le jumbo prend une hauteur d'écran
+  // 100vh = 100% de la hauteur du viewport
+  height: 100vh;
+  padding: 0 var(--margin-base);
+
+  // on ajoute un background sombre en plus de l'image, au cas ou l'image ne charge pas.
+  // pour que le texte en blanc reste lisible.
+  background-color: var(--color-dark); 
+  background-image: url(./../public/img/bg-1.jpg);
+  background-size: cover;
+  background-position: left -8rem center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--color-light);
+  text-align: center;
+  line-height: 1;
+  
+  @include mixin.medium {
+    justify-content: center;
+    background-position: left center;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    border-top: solid .1rem var(--color-light);
+    border-bottom: solid .1rem var(--color-light);
+    padding: 1em 2em;
+    margin-bottom: 2em;
+  }
+
+  &__intro {
+    font-size: 3rem;
+  }
+}

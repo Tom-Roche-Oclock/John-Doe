@@ -1,0 +1,21 @@
+@use './../mixin';
+
+.contact {
+  background-image: url(./../public/img/map-light.png);
+  background-size: cover;
+  background-position: center;
+  
+  h3 {
+    font-weight: normal;
+    font-size: 2rem;
+    margin-bottom: 1em;
+  }
+  .row {
+    align-items: stretch;
+  }
+
+  // on passe la google map en nuances de gris pour qu'elle s'integre mieux au design
+  iframe {
+    filter: grayscale(1);
+  }
+}
