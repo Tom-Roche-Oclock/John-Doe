@@ -68,7 +68,7 @@ section:nth-child(odd) {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: var(--font-title);
   font-weight: 700;
   line-height: 1;
@@ -80,6 +80,7 @@ h2 {
   background-repeat: no-repeat;
 
   @include mixin.medium {
+    font-size: 3rem;
     text-align: start;
     background-position: left center;
   }
